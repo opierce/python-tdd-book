@@ -4,10 +4,10 @@ Description=Gunicorn server for superlists-staging.curiousrobotlabs.com
 [Service]
 Restart=on-failure
 User=tinker
-WorkingDirectory=/home/tinker/sites/superlists-staging.curiousrobotlabs.com
-EnvironmentFile=/home/tinker/sites/superlists-staging.curiousrobotlabs.com/.env
+WorkingDirectory=/home/ubuntu/sites/superlists-staging.curiousrobotlabs.com
+EnvironmentFile=/home/ubuntu/sites/superlists-staging.curiousrobotlabs.com/.env
 
-ExecStart=/home/tinker/sites/superlists-staging.curiousrobotlabs.com/virtualenv/bin/gunicorn --bind unix:/tmp/superlists-staging.curiousrobotlabs.com.socket superlists.wsgi:application
+ExecStart=/home/ubuntu/sites/superlists-staging.curiousrobotlabs.com/virtualenv/bin/gunicorn --bind unix:/tmp/superlists-staging.curiousrobotlabs.com.socket superlists.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
