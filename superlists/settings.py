@@ -25,7 +25,8 @@ SECRET_KEY = '!3q!+ncuo@i1&p23pr_@fh)3)+e1ke+r24g)74ii*xun_yiof!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['superlists-staging.curiousrobotlabs.com']
+ALLOWED_HOSTS = ['superlists-staging.curiousrobotlabs.com',
+                 'localhost']
 
 
 # Application definition
