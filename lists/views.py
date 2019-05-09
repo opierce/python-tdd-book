@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import redirect, render
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 from lists.models import Item, List
 
 # Create your views here.
@@ -19,7 +20,7 @@ def new_list(request):
 		list_.delete()
 		error = "You can't have an empty list item"
 		return render(request, 'home.html', {'error': error})
-	return redirect(f'/lists/{list_.id}/')
+	return redirect(list_)
 
 def view_list(request, list_id):
 	list_ = List.objects.get(id=list_id)
@@ -30,7 +31,7 @@ def view_list(request, list_id):
 			item = Item(text=request.POST['item_text'], list=list_)
 			item.full_clean()
 			item.save()
-			return redirect(f'/lists/{list_.id}/')
+			return redirect(list_)
 		except ValidationError:
 			error = "You can't have an empty list item"
 
