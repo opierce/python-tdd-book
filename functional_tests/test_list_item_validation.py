@@ -1,6 +1,7 @@
 from .base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from lists.forms import DUPLICATE_ITEM_ERROR
 
 class ItemInvalidationTest(FunctionalTest):
 
@@ -51,6 +52,6 @@ class ItemInvalidationTest(FunctionalTest):
 
 		# She sees a helpful error message
 		self.wait_for(lambda: self.assertEqual(
-			self.browser.find_elements_by_css_selector('.has-error'),
-			"You've already got this in your list"
+			self.browser.find_element_by_css_selector('.has-error').text,
+			DUPLICATE_ITEM_ERROR
 		))
